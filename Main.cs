@@ -10,8 +10,8 @@ public class Login {
     static string connectionString;
     static SqlConnection connection;
     public void VerificationCode(string code, string email) {
-        string stringMail = "4digitcodebot@gmail.com";
-        string stringPassowrd = "bsxp gofg puao edlf";
+        string stringMail = "YOUR-EMAIL"; // Please put your email here
+        string stringPassowrd = "YOUR-APP-PASSWORD"; // Please put your email password here so the connection to the portal is made
         MailMessage message = new MailMessage();
         message.From = new MailAddress(stringMail);
         message.Subject = "Verification code";
@@ -25,7 +25,7 @@ public class Login {
         smtpClient.Send(message);
     }
     public async Task EstablishConnection() {
-        connectionString = @"data source=localhost;initial catalog=master;user id=sa;password=07022004Stefan;TrustServerCertificate=True;";
+        connectionString = @"data source=localhost;initial catalog=master;user id=sa;password=<<YourPassword>>;TrustServerCertificate=True;";
         connection = new SqlConnection(connectionString);
         await Task.Run(() => {
             try {
